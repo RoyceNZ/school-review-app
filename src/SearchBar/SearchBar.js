@@ -12,87 +12,125 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 function SearchBar() {
-    return (
-        <div style={{ display: 'flex', alignItems: 'center', width: '100%', paddingTop: '1rem' }}>
-            <Button disabled>Age</Button>
-            <Autocomplete
-      multiple
-      id="checkboxes-tags-demo"
-      options={ageGroups}
-      disableCloseOnSelect
-      getOptionLabel={(option) => option.title}
-      renderOption={(props, option, { selected }) => {
-        const { key, ...optionProps } = props;
-        return (
-          <li key={key} {...optionProps}>
-            <Checkbox
-              icon={icon}
-              checkedIcon={checkedIcon}
-              style={{ marginRight: 8 }}
-              checked={selected}
-            />
-            {option.title}
-          </li>
-        );
-      }}
-      style={{ width: 300 }}
-      renderInput={(params) => (
-        <TextField {...params} label="Select Age Group"/>
-      )}
-    />
-            <Button disabled>Area</Button>
-            <LocationSearch />
+    const handleSearchClick = () => {
+      window.location.href = '/schools';
+    };
 
-        <Button variant="contained" style={{marginLeft: '10px'}} size="large" endIcon={<SearchIcon />}>Search</Button>
-        </div>
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', width: '100%', paddingTop: '1rem' }}>
+        <Button disabled>Level</Button>
+        <Autocomplete
+          multiple
+          id="checkboxes-tags-demo"
+          options={ageGroups}
+          disableCloseOnSelect
+          getOptionLabel={(option) => option.Benamning}
+          renderOption={(props, option, { selected }) => {
+            const { key, ...optionProps } = props;
+            return (
+              <li key={key} {...optionProps}>
+                <Checkbox
+                  icon={icon}
+                  checkedIcon={checkedIcon}
+                  style={{ marginRight: 8 }}
+                  checked={selected}
+                />
+                {option.Benamning}
+              </li>
+            );
+          }}
+          style={{ width: 300 }}
+          renderInput={(params) => (
+            <TextField {...params} label="Select Level" />
+          )}
+        />
+        <Button disabled>Area</Button>
+        <LocationSearch />
+        <Button
+          variant="contained"
+          style={{ marginLeft: '10px' }}
+          size="large"
+          endIcon={<SearchIcon />}
+          onClick={handleSearchClick}
+        >
+          Search
+        </Button>
+      </div>
     );
 }
 
-const ageGroups = [
-    { title: 'Nursery' },
-    { title: 'Primary' },
-    { title: 'Secondary' },
-    { title: 'Sixth Form' },
+const ageGroups =  [
+  {
+    "Benamning": "Gymnasieskola",
+    "SkolformID": 1,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Kommunal vuxenutbildning som anpassad utbildning",
+    "SkolformID": 2,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Kommunal vuxenutbildning",
+    "SkolformID": 4,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Grundskola",
+    "SkolformID": 5,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Förskoleklass",
+    "SkolformID": 6,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Fritidshem",
+    "SkolformID": 7,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Anpassad grundskola",
+    "SkolformID": 8,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Öppen fritidsverksamhet",
+    "SkolformID": 9,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Öppen förskola",
+    "SkolformID": 11,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Specialskola",
+    "SkolformID": 12,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Kommunal vuxenutbildning i svenska för invandrare",
+    "SkolformID": 13,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Central insamlingsenhet",
+    "SkolformID": 14,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Sameskola",
+    "SkolformID": 15,
+    "SkolformKod": null
+  },
+  {
+    "Benamning": "Anpassad gymnasieskola",
+    "SkolformID": 3,
+    "SkolformKod": null
+  }
 ];
-// change this for an api of all schools
-// const allSchools = [
-//     { title: 'The American School', location: 'Washington' },
-//     { title: 'The British School', location: 'London' },
-//     { title: 'The French School', location: 'Paris' },
-//     { title: 'The German School', location: 'Berlin' },
-//     { title: 'The Kenyan School', location: 'Nairobi' },
-//     { title: 'The Ugandan School', location: 'Kampala' },
-//     { title: 'The Tanzanian School', location: 'Dodoma' },
-//     { title: 'The Rwandese School', location: 'Kigali' },
-// ];
 
-// <Button disabled>Schools</Button>
-// <Autocomplete
-//     multiple
-//     id="tags-outlined"
-//     options={allSchools}
-//     getOptionLabel={(option) => option.title}
-//     filterSelectedOptions
-//     style={{ flexGrow: 1, marginLeft: '10px' }}
-//     renderInput={(params) => (
-//         <TextField
-//             {...params}
-//             label="Select school"
-//             placeholder="Favorites"
-//         />
-//     )}
-// />
-
-// change this for an api of all areas
-const areas = [
-    { title: 'Washington' },
-    { title: 'London' },
-    { title: 'Paris' },
-    { title: 'Berlin' },
-    { title: 'Nairobi' },
-    { title: 'Kampala' },
-    { title: 'Dodoma' },
-    { title: 'Kigali' },
-];
 
 export default SearchBar;

@@ -4,6 +4,7 @@ import TopNav from './TopNav/TopNav';
 import logo from '../Assets/logo.png';
 import styles from './LandingPage.module.css';
 import SearchBar from '../SearchBar/SearchBar';
+import SchoolNameSearchBar from '../SchoolNameSearchBar/SchoolNameSearchBar';
 
 const LandingPage = () => {
     return (
@@ -11,6 +12,12 @@ const LandingPage = () => {
             <TopNav />
             <img src={logo} alt="logo" className={styles.logo} />
             <SearchBar />
+
+            <div className={styles.or}>
+                <h3>OR</h3>
+            </div>
+
+            <SchoolNameSearchBar />
         </div>
     );
 };
